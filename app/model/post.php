@@ -7,7 +7,7 @@ class ExtraContent {}
 class Item 
 {
 	protected $title = '';
-	protected $date = '';
+	protected $date  = '';
 	
 	function __construct($title, $date)
 	{
