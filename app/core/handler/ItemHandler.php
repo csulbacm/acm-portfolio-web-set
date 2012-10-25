@@ -3,7 +3,7 @@
 namespace Core;
 
 class ItemHandler {
-	protected $sections = [];
+	protected $sections = array();
 
 	function __construct () {}
 

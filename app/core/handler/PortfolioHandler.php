@@ -3,9 +3,11 @@
 namespace Core;
 
 class PortfolioHandler {
-	protected $sections = [];
+	protected $sections = array();
 
-	function __construct () {}
+	function __construct () {
+
+	}
 	public function getSection() {}
 
 	private function scanSections() {}

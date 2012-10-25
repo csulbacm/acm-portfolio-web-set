@@ -6,7 +6,7 @@ class ConfigScanner
 {
 	private $fileContent;
 	private $filePath;
-	private $config = array()
+	private $config = array();
 
 	function __construct($filePath) 
 	{
@@ -28,7 +28,7 @@ class ConfigScanner
 
 	private function scanFile()    
 	{
-
+		$this->config = parse_ini_string($fileContent);
 	}
 
 	private function hasKey($key)  

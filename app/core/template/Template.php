@@ -7,7 +7,7 @@ class Template
 	private $path = '';
 	private $data = array();
 
-	function __construct(argument) {}
+	function __construct() {}
 
 	public function addValue($key, $value) 
 	{
