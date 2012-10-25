@@ -24,7 +24,7 @@
 			background: #ddd;
 		}
 
-		div	
+		div.note	
 		{
 			-webkit-transform:rotate(-1deg);
 			margin:150px auto 0 auto;
