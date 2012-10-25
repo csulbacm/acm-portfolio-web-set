@@ -8,7 +8,7 @@
 namespace Util;
 
 class JsonMap {
-	protected $json     = "";
+	protected $json = "";
 	protected $jsonArray = array();
 	protected $routeMap = "";
 

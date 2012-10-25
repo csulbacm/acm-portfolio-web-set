@@ -5,12 +5,34 @@ namespace Core;
 class ConfigScanner
 {
 	private $fileContent;
+	private $filePath;
 	private $config = array()
 
-	function __construct(argument) {}
-	public function returnConfig() {}
-	public function getValue($key) {}
+	function __construct($filePath) 
+	{
+		$this->filePath = $filePath;
+		$this->scanFile();
+	}
 
-	private function scanFile()    {}
-	private function hasKey($key)  {}
+	public function returnConfig() 
+	{
+		return $this->config;
+	}
+	
+	public function getValue($key) 
+	{
+		if(!$this->hasKey($key)) return false;
+
+		return $this->config[$key];
+	}
+
+	private function scanFile()    
+	{
+
+	}
+
+	private function hasKey($key)  
+	{
+		return array_key_exists($key, $this->config);
+	}
 }
