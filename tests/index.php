@@ -38,7 +38,7 @@
 
 	function assert_handler($file, $line, $code, $desc = null)
 	{
-		fail(0, "Assertion failed at $file:$line: $code", $desc);
+		fail("Assertion failed at $file:$line: $code", $desc);
 	}
 
 	assert_options(ASSERT_CALLBACK, 'assert_handler');
@@ -54,7 +54,8 @@
 	rx_includeAll(dirname(__FILE__) . '/ut/');
 	rx_includeAll(dirname(__FILE__) . '/ut/core/handler');
 	rx_includeAll(dirname(__FILE__) . '/ut/core/template');
-	rx_includeAll(dirname(__FILE__) . '/ut/core/model');
+	rx_includeAll(dirname(__FILE__) . '/ut/core/config');
+	rx_includeAll(dirname(__FILE__) . '/ut/model');
 	rx_includeAll(dirname(__FILE__) . '/ut/util');
 	rx_includeAll(dirname(__FILE__) . '/ut/util/base');
 ?>

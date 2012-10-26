@@ -4,17 +4,27 @@ namespace Core;
 
 class ConfigScanner
 {
-	private $fileContent;
-	private $filePath;
-	private $config = array();
+	protected $fileContent;
+	protected $filePath;
+	protected $config = array();
 
 	function __construct($filePath) 
 	{
 		$this->filePath = $filePath;
-		$this->scanFile();
+		// Read the file here.
+		$this->makeConfig();
 	}
 
-	public function returnConfig() 
+	public static function fromString($fileContent)
+	{
+		$me = new self('');
+		$me->fileContent = $fileContent;
+		$me->makeConfig();
+		
+		return $me;
+	}
+
+	public function getConfig() 
 	{
 		return $this->config;
 	}
@@ -26,9 +36,9 @@ class ConfigScanner
 		return $this->config[$key];
 	}
 
-	private function scanFile()    
+	private function makeConfig()    
 	{
-		$this->config = parse_ini_string($fileContent);
+		$this->config = parse_ini_string($this->fileContent);
 	}
 
 	private function hasKey($key)  
