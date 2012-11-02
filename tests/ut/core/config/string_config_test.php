@@ -2,9 +2,9 @@
 
 use \Core\ConfigScanner as ConfigScanner;
 
-function p($m) { pass('Config Test: ' . $m);}
-function f($m) { fail('Config Test: ' . $m);}
-$perfect = true;
+use Tester\Tester as Tester;
+
+$tester = new Tester("Config Test");
 
 $test_ini_file = <<<INI
 ; last modified 1 April 2001 by John Doe
@@ -17,12 +17,19 @@ try {
 	$configTest = ConfigScanner::fromString($test_ini_file);
 	
 	if($configTest->getValue('name') !== 'John Doe')
-		f('Name Value Test (name)');
-
+	{
+		$tester->fail('Name Value Test (name)');
+		$perfect = false;
+	}
+ 
 	if($configTest->getValue('portfolio_name') !== 'The Lab')
-		f('Name Value Test (portfolio)');
+	{
+		$tester ->fail('Name Value Test (portfolio)');
+		$perfect = false;
+	}
 
-	if($perfect) p('All works');
+	if($tester->isPerfect()) { $tester->pass('All works'); }
+	
 } catch (\Exception $e) {
-	f('Exception caught');
+	$tester->pass('Exception caught');
  }

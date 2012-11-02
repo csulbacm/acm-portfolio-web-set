@@ -1,49 +1,10 @@
 <?php
-	$messages = array();
-	$allPass  = true;
 	define("FILEROOT", dirname(dirname(__FILE__)));
 	define("APPROOT", FILEROOT . "/app/");
 
-	assert_options(ASSERT_ACTIVE, 1);
-	assert_options(ASSERT_WARNING, 0);
-	assert_options(ASSERT_QUIET_EVAL, 1);
-
-	function fail($msg, $desc) {
-		global $allPass;
-		global $messages;
-		
-		$allPass = false;
-		array_push($messages, array(0, "FAIL", $msg . ' ' . $desc));
-
-	}
-
-	function pass($msg, $desc) {
-		global $messages;
-		array_push($messages, array(1, "PASS", $msg . ' ' . $desc));
-
-	}
-
-	function print_message($message_array) {
-		$class = "fail";
-
-		if(count($message_array) !== 3) return;
-		if($message_array[0] === 1) $class = "pass";
-
-		echo '<li class="' . $class . '">';
-		echo '<h2>' . $message_array[1] . '</h2>';
-		echo '<p>' . $message_array[2] . '</p>';
-		echo '</li>';
-	}
-
-
-	function assert_handler($file, $line, $code, $desc = null)
-	{
-		fail("Assertion failed at $file:$line: $code", $desc);
-	}
-
-	assert_options(ASSERT_CALLBACK, 'assert_handler');
-
+    include_once "./inc/tester.php"; 
 	include_once APPROOT . "helper.php";
+
 	rx_includeAll(APPROOT . '/util/base/');
 	rx_includeAll(APPROOT . '/util/');
 	rx_includeAll(APPROOT . '/model/');
@@ -58,6 +19,8 @@
 	rx_includeAll(dirname(__FILE__) . '/ut/model');
 	rx_includeAll(dirname(__FILE__) . '/ut/util');
 	rx_includeAll(dirname(__FILE__) . '/ut/util/base');
+
+	use Tester\Tester as Tester;
 ?>
 
 <html>
@@ -112,17 +75,17 @@
 	</head>
 	<body>
 		<div class="note">
-		<?php if($allPass): ?>
+		<?php if(Tester::getTestPass()): ?>
 				<h1 style="font-weight:normal;">Yes, everything works.</h1>
 				<p><small>Move on, nothing to see here.</small></p>	
-		<?php else: ?>		
+		<?php else: ?>	
 				<h1 style="font-weight:normal;">!!, Something went wrong.</h1>
 				<p><small>Don't be sad, be mad.</small></p>	
 		<?php endif ?>		
 		</div>
 		<ul>
-			<?php foreach ($messages as $m):?>
-				<?php print_message($m); ?>
+			<?php foreach (Tester::getMessages() as $m):?>
+				<?php Tester::print_message($m); ?>
 			<?php endforeach ?>
 		</ul>
 	</body>	
