@@ -28,7 +28,7 @@ try {
 		$perfect = false;
 	}
 
-	if($tester->isPerfect()) { $tester->pass('All works'); }
+	if($tester->isPerfect()) { $tester->pass('PASS'); }
 	
 } catch (\Exception $e) {
 	$tester->pass('Exception caught');
