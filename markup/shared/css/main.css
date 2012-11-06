@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5 {
 
 .main {
     font-family:"Open Sans", sans-serif;
-    background: #dedede;
+    background: #ddd;
 }
 
 .card {
@@ -48,4 +48,40 @@ html[xmlns] .clearfix {
  
 * html .clearfix {
 	height: 1%;
+}
+
+/* Card Part: Text Content */
+.card-text-conent {
+    padding:5px 10px;
+}
+/* Card Part: MiniGallery */
+
+.card-mini-gallery {
+    display:block;
+    width:960px;
+}
+.card-mini-gallery ul { 
+    padding:0;
+    margin:10px 20px 0 10px;
+    
+    width:940px;
+    height:auto;
+}
+.card-mini-gallery ul li,
+.card-mini-gallery ul .fake-image{ 
+    height:137px;
+    width:220px;
+}
+
+.card-mini-gallery  ul li {     
+    margin:10px 8px 10px 7px;
+    padding:0;
+    
+    list-style:none;
+    float:left;
+}
+
+.card-mini-gallery ul .fake-image {     
+    background: rgb(180,100,130);
+    display:inline-block;
 }
