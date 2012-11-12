@@ -2,11 +2,20 @@
 
 namespace Core;
 
+use Util\FileList as FileList;
+use Model\Post as Post;
+
 class ItemHandler {
-	protected $sections = array();
 
-	function __construct () {}
+	static function getItem($postPath) {
+		$postPath  = "";
 
-	private function validateFiles() {}
-	private function getProperites() {}
+		$type = "";
+		$dirObject = new FileList($this->postPath);
+		$item = null;
+
+		foreach ($this->dirObject->getFileList() as $file) {
+			echo $file;
+		}
+	}	
 }
