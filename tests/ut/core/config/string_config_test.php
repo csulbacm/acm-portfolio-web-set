@@ -24,7 +24,7 @@ try {
  
 	if($configTest->getValue('portfolio_name') !== 'The Lab')
 	{
-		$tester ->fail('Name Value Test (portfolio)');
+		$tester->fail('Name Value Test (portfolio)');
 		$perfect = false;
 	}
 

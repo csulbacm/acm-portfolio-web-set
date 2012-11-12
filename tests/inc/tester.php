@@ -31,8 +31,8 @@
 
 		public function header($desc)
 		{
-			array_push(self::$messages, array(2, "PASS", $msg . ' ' . $desc));
-			array_push($this->selfMessages, array(2, "PASS", $msg . ' ' . $desc));
+			array_push(self::$messages, array(2, "PASS", $this->testName . ' ' . $desc));
+			array_push($this->selfMessages, array(2, "PASS", $this->testName . ' ' . $desc));
 
 		}
 
@@ -41,19 +41,19 @@
 			return $this->selfPerfect;
 		}
 
-		public function fail($msg, $desc) 
+		public function fail($msg) 
 		{
 			self::$allPass = false;
 			$this->selfPerfect = false;
-			array_push(self::$messages, array(0, "FAIL", $msg . ' ' . $desc));
-			array_push($this->selfMessages, array(0, "FAIL", $msg . ' ' . $desc));
+			array_push(self::$messages, array(0, "FAIL", $this->testName . ': ' . $msg));
+			array_push($this->selfMessages, array(0, "FAIL", $this->testName . ': ' . $msg));
 
 		}
 
-		public function pass($msg, $desc) 
+		public function pass($msg) 
 		{
-			array_push(self::$messages, array(1, "PASS", $msg . ' ' . $desc));
-			array_push($this->selfMessages, array(1, "PASS", $msg . ' ' . $desc));
+			array_push(self::$messages, array(1, "PASS", $this->testName . ': ' . $msg));
+			array_push($this->selfMessages, array(1, "PASS", $this->testName . ': ' . $msg));
 		}
 
 		public static function getTestPass() 
