@@ -61,20 +61,36 @@
 			return self::$allPass;
 		}
 
-		public static function print_message($message_array) 
+		public static function print_message($message_array, $printHTML = true) 
 		{
 			$class = array("fail", "pass", "header");
 			$class = $class[$message_array[0]];
 
 			if(count($message_array) !== 3) return;
-			
-
-			echo '<li class="' . $class . '">';
-			echo '<h2>' . $message_array[1] . '</h2>';
-			echo '<p>' . $message_array[2] . '</p>';
-			echo '</li>';
+			if($printHTML) echo self::print_html($message_array, $class);
+			else echo self::print_text($message_array);
 		}
 
+		private static function print_html($message_array, $class)
+		{
+			$out = "";
+			$out .= '<li class="' . $class . '">';
+			$out .= '<h2>' . $message_array[1] . '</h2>';
+			$out .= '<p>' . $message_array[2] . '</p>';
+			$out .= '</li>';
+
+			return $out;
+		}
+
+
+		private static function print_text($message_array)
+		{
+			$out = "";
+			$out .= $message_array[1] . ': ';
+			$out .= $message_array[2] . "\n";
+
+			return $out;
+		}
 	}
 
 	Tester::init();

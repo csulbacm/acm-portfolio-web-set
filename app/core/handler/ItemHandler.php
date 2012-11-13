@@ -7,15 +7,22 @@ use Model\Post as Post;
 
 class ItemHandler {
 
-	static function getItem($postPath) {
-		$postPath  = "";
-
+	static function getItem($postPath) 
+	{
 		$type = "";
-		$dirObject = new FileList($this->postPath);
+		$dirObject = new FileList($postPath);
 		$item = null;
 
-		foreach ($this->dirObject->getFileList() as $file) {
+		if(!$dirObject->hasFile('config.ini')) {
+			throw new \Exception();
+		}
+		else 
+		{
+
+		}
+		foreach ($dirObject->getFileList() as $file) {
 			echo $file;
 		}
 	}	
+
 }
