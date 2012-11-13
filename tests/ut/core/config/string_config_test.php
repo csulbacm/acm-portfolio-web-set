@@ -31,5 +31,5 @@ try {
 	if($tester->isPerfect()) { $tester->pass('PASS'); }
 	
 } catch (\Exception $e) {
-	$tester->fail('Exception caught');
+	$tester->fail('Exception thrown: ' . $e->getMessage());
  }

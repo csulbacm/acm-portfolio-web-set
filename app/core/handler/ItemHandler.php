@@ -14,14 +14,7 @@ class ItemHandler {
 		$item = null;
 
 		if(!$dirObject->hasFile('config.ini')) {
-			throw new \Exception();
-		}
-		else 
-		{
-
-		}
-		foreach ($dirObject->getFileList() as $file) {
-			echo $file;
+			throw new \Exception('File not found: config.ini');
 		}
 	}	
 
