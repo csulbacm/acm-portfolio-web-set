@@ -41,7 +41,7 @@ class ConfigScanner
 		$this->config = parse_ini_string($this->fileContent);
 	}
 
-	private function hasKey($key)  
+	public function hasKey($key)  
 	{
 		return array_key_exists($key, $this->config);
 	}

@@ -41,19 +41,20 @@
 			return $this->selfPerfect;
 		}
 
-		public function fail($msg) 
+		public function fail($msg = NULL) 
 		{
+			$msg = $msg == NULL ? ' ' : $msg + ' : ';
 			self::$allPass = false;
 			$this->selfPerfect = false;
-			array_push(self::$messages, array(0, "FAIL", $this->testName . ': ' . $msg));
-			array_push($this->selfMessages, array(0, "FAIL", $this->testName . ': ' . $msg));
+			array_push(self::$messages, array(0, "FAIL", $this->testNae . $msg . $msg));
+			array_push($this->selfMessages, array(0, "FAIL", $this->testName . $msg . $msg));
 		}
 
-		public function pass($msg) 
+		public function pass($msg = NULL) 
 		{
-
-			array_push(self::$messages, array(1, "PASS", $this->testName . ': ' . $msg));
-			array_push($this->selfMessages, array(1, "PASS", $this->testName . ': ' . $msg));
+			$msg = $msg == NULL ? ' ' : $msg + ' : ';
+			array_push(self::$messages, array(1, "PASS", $this->testName . $msg . $msg));
+			array_push($this->selfMessages, array(1, "PASS", $this->testName . $msg . $msg));
 		}
 
 		public static function getTestPass() 

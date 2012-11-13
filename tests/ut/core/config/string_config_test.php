@@ -7,7 +7,6 @@ use Tester\Tester as Tester;
 $tester = new Tester("Config Test");
 
 $test_ini_file = <<<INI
-; last modified 1 April 2001 by John Doe
 [owner]
 name=John Doe
 portfolio_name=The Lab
@@ -28,8 +27,8 @@ try {
 		$perfect = false;
 	}
 
-	if($tester->isPerfect()) { $tester->pass('PASS'); }
+	if($tester->isPerfect()) { $tester->pass(); }
 	
 } catch (\Exception $e) {
-	$tester->fail('Exception thrown: ' . $e->getMessage());
+	$tester->fail('Exception caught: ' . $e->getMessage());
  }

@@ -13,7 +13,7 @@ class Section
 	protected $title = '';
 	protected $items = array();
 
-	function __construct($title)
+	function __construct($title, $path)
 	{	
 		$this->title = $title;
 	}
