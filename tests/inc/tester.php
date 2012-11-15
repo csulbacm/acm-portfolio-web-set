@@ -46,7 +46,7 @@
 			$msg = $msg == NULL ? ' ' : $msg + ' : ';
 			self::$allPass = false;
 			$this->selfPerfect = false;
-			array_push(self::$messages, array(0, "FAIL", $this->testNae . $msg . $msg));
+			array_push(self::$messages, array(0, "FAIL", $this->testName . $msg . $msg));
 			array_push($this->selfMessages, array(0, "FAIL", $this->testName . $msg . $msg));
 		}
 
