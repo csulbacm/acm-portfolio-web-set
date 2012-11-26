@@ -15,6 +15,15 @@ class Router extends JsonMap {
 		$this->parseJSON();
 	}
 
+	// Checks to see if the path exists in the map
+	public function hasPath($path) {
+		if(!isset($this->pages[$path[0]])) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	private function parseJSON() {
 		$this->pages = $this->jsonArray["pages"];
 	}
@@ -22,4 +31,5 @@ class Router extends JsonMap {
 	public function getArray () {
 		return $this->pages;
 	}
+
 }

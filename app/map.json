@@ -1,0 +1,25 @@
+{
+    "pages": {
+        "index" : {
+            "controller" : "",
+            "template" : ""
+        },
+        
+        "view-all" : {
+            "controller" : "",
+            "template" : ""
+        },
+        "view-section" : {
+            "controller" : "",
+            "template" : ""
+        },
+        "view-work" : {
+            "controller" : "",
+            "template" : ""
+        },
+        "view-misc-content" : {
+            "controller" : "",
+            "template" : ""
+        }
+    }
+}

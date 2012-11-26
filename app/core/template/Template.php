@@ -1,13 +1,20 @@
 <?php
 
 namespace Core;
+use Util\FileList as FileList;
 
 class Template 
 {
 	private $path = '';
 	private $data = array();
+	private $isValid = false;
 
-	function __construct() {}
+	function __construct($path) {
+		if(file_exists(TEMPLATEROOT . $path . ".php")) {
+			$this->isValid = true;
+			$this->path = TEMPLATEROOT . $path . ".php";
+		}
+	}
 
 	public function addValue($key, $value) 
 	{
@@ -25,4 +32,5 @@ class Template
 
 		return $this->data[$key];
 	}
+
 }

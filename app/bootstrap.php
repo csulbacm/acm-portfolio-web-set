@@ -24,3 +24,7 @@ define('JSDIR',    SITEROOT . 'static/global/js/');
 define('IMAGESFILEDIR', FILEROOT . '/static/global/img/');
 define('CSSFILEDIR',    FILEROOT . '/static/global/css/');
 define('DATAFILEDIR',   FILEROOT . '/data/');
+define("APPROOT", FILEROOT . "/app/");
+
+define("TEMPLATEROOT", FILEROOT . "/template/");
+define("CROOT", APPROOT . "/controller");

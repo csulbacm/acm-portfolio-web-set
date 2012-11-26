@@ -6,6 +6,14 @@
 * \version 1.0
 */
 
+//! Static class of values to store http errors
+class Status {
+    public static $okay = 200;
+    public static $notfound = 404;
+    public static $error = 500;
+}
+
+
 //! Returns a boolean of whether a string begins with a substring.
 /*! From http://snipplr.com/view.php?codeview&id=5939
 *    \param $string    string
@@ -31,14 +39,15 @@ function stringEndsWith($string, $subString) {
     return substr_compare($string, $subString, -$testlen) === 0;
 }
 
-
-//! Includes a php part for a page
-/*!
-*    \param $type string
-*    \param $name string  
+//! Check if a php file exists in a directory
+/*   \param $root     string
+*    \param $filename string
+*    \return boolean
 */
-function includePart($type, $name) {
-	include(INCPATH .'/views/parts/' . $type . '/' . $name . '.php');
+
+
+function phpFileExists($root, $filename) {
+    return file_exists($root . '/' . $filename . ".php");
 }
 
 //!@{ Error Pages
@@ -51,36 +60,8 @@ function includePart($type, $name) {
 
 function throw404() {
     header("HTTP/1.0 404 Not Found");
-    include_once(INCPATH .'/views/404.php');
 }
 
-//!}
-
-//! Returns the HTML for the page.
-/*!
-* 
-*     \param $tempalteName string 
-*/
-function renderView($tempalteName) {
-    $viewPath = INCPATH .'/views/' . $tempalteName . '.php';
-    if($tempalteName == "") {
-        include_once(INCPATH .'/views/index.php');
-    } else {
-        if(file_exists($viewPath)) {
-            include_once($viewPath);
-        } else {
-            throw404();
-        }
-    }
-}
-
-//! Includes all the php files in a given directory
-/*!
- *
- *      \param   $dir string
- *      \returns none
- *
- */
 
 function rx_includeAll($dir) {
     foreach (glob($dir . "/*.php") as $filename)
