@@ -1,3 +1,5 @@
+<?php if(!defined('IN_GS')){ die('you cannot load this page directly.'); } ?>
+
 <?php include_once('inc/top.php'); ?>	
 			<div class="wrapper wrapper-content">
 				<!-- The Index Card -->
