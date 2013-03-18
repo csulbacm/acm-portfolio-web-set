@@ -1,22 +1,5 @@
-<html>
-	<head>
-		<title>Desktop Main Page</title>
-		<link rel="stylesheet" href="../shared/css/main.css">
-		<link rel="stylesheet" href="css/desktop.css">
-		<script src="../shared/js/jquery.js"></script>
-	</head>
-	<body class="main desktop">
-		<div class="wrapper wrapper-over">		
-		
-			<!-- Over navigation -->
-			<nav>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Work</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">About</a></li>
-				</ul>
-			</nav>
+<?php include_once('inc/top.php'); ?>
+
 		
 			<div class="wrapper wrapper-content">
 				<!-- The Index Card -->
