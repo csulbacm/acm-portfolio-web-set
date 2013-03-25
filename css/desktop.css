@@ -77,10 +77,7 @@ nav select {
 #main-card h2 { padding:10px 15px; font-size:20px;}
 
 @media screen and (max-width: 500px) {
-    .main {
-        background: blue !important;
-    }
-    
+        
 
     nav select { 
      display: block;
@@ -99,9 +96,7 @@ nav select {
     .wrapper {
         margin:0;
     }
-    .main {
-        background: red;
-    }
+    .main {   }
 
     nav {
         width:100%;

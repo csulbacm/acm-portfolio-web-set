@@ -11,23 +11,22 @@
 					</hgroup>
 					
 					<div class="card-text-conent">
-							<?php get_page_content(); ?>
-
+						<?php get_custom_field('description'); ?> 
 					</div>
 					
 					<div class="card-mini-gallery clearfix">
-						<ul>
-						<li><a href="#"><span class="fake-image" width="220px"></span></a></li>
-						<li><a href="#"><span class="fake-image" width="220px"></span></a></li>
-						<li><a href="#"><span class="fake-image" width="220px"></span></a></li>
-						<li><a href="#"><span class="fake-image" width="220px"></span></a></li>
-						</ul>							
+						<div id="content">
+							<?php get_custom_field('gallery-content'); ?> 
+						</div>
+						
+						<ul></ul>							
 					</div>
-					
-					<div class="card-text-conent">
-						<?php get_page_content(); ?>
 
+					<div class="card-text-conent">
+							<?php get_page_content(); ?>
+						
 					</div>
+				
 					
 				</div>						
 			</div>
